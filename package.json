@@ -1,0 +1,16 @@
+{
+  "name": "secret-bidder-cli",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:miarao/secret-bidder-cli.git",
+  "author": "miarao <miaraomer@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^20.12.13",
+    "commander": "^12.1.0",
+    "dotenv": "^16.4.5",
+    "secretjs": "^1.12.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}
