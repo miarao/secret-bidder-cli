@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "git@github.com:miarao/secret-bidder-cli.git",
-  "author": "miarao <miaraomer@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "tsc -b",
+    "lint": "eslint --max-warnings 0 'modules/*/{src,tests,public}/**/*.{ts,tsx,js,json,d.ts,html}'",
+    "lint:fix": "yarn lint --fix",
+    "maintain": "yarn lint --fix && yarn deps --fix && yarn sort-package-json"
+  },
   "dependencies": {
     "@types/node": "^20.12.13",
     "commander": "^12.1.0",
@@ -12,5 +17,19 @@
     "secretjs": "^1.12.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "@typescript-eslint/eslint-plugin": "^6.18.1",
+    "@typescript-eslint/parser": "^7.11.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-html": "^7.1.0",
+    "eslint-plugin-jest": "^25.7.0",
+    "sort-package-json": "^1.57.0",
+    "prettier": "^2.8.8",
+    "eslint-plugin-json": "^3.1.0",
+    "eslint-plugin-prettier": "^4.1.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-unused-imports": "^2.0.0"
   }
 }

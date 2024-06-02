@@ -1,4 +1,5 @@
-import { SecretNetworkClient, Wallet, MsgExecuteContract, Permit } from 'secretjs'
+import { MsgExecuteContract, Permit, SecretNetworkClient, Wallet } from 'secretjs'
+
 import { signPermit } from './utils'
 
 // Define the function to place a bid
@@ -7,7 +8,7 @@ export const placeBid = async (walletMnemonic: string, bid: number): Promise<any
   const client = new SecretNetworkClient({
     url: 'https://grpc-web.secret.network',
     chainId: 'secret-4',
-    wallet: wallet,
+    wallet,
     walletAddress: wallet.address,
   })
 
@@ -18,11 +19,9 @@ export const placeBid = async (walletMnemonic: string, bid: number): Promise<any
     sent_funds: [],
   })
 
-  const result = await client.tx.broadcast([msg], {
+  return await client.tx.broadcast([msg], {
     gasLimit: 200_000,
   })
-
-  return result
 }
 
 // Define the function to query a bid
@@ -33,7 +32,7 @@ export const queryBid = async (walletMnemonic: string): Promise<any> => {
   const client = new SecretNetworkClient({
     url: 'https://grpc-web.secret.network',
     chainId: 'secret-4',
-    wallet: wallet,
+    wallet,
     walletAddress: wallet.address,
   })
 
@@ -53,7 +52,7 @@ export const queryWinner = async (walletMnemonic: string): Promise<any> => {
   const client = new SecretNetworkClient({
     url: 'https://grpc-web.secret.network',
     chainId: 'secret-4',
-    wallet: wallet,
+    wallet,
     walletAddress: wallet.address,
   })
 
