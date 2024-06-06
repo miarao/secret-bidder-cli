@@ -2,12 +2,12 @@
 import { Command } from 'commander'
 import { placeBid, queryBid, queryWinner } from './secretjsFunctions'
 import { Wallet } from "secretjs";
-import { getLocalWallet } from "./utils";
+import { initWallet } from "./utils";
 
 const program = new Command()
 program.version('0.0.1')
 
-const wallet = getLocalWallet()
+const wallet = initWallet()
 
 
 // contract uploading flow, if not already uploaded - how would we know?

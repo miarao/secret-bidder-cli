@@ -1,7 +1,5 @@
 import { MsgExecuteContract, Permit, SecretNetworkClient, Wallet } from 'secretjs'
 
-import { signPermit } from './utils'
-
 // Define the function to place a bid
 export const placeBid = async (walletMnemonic: string, bid: number): Promise<any> => {
   const wallet = new Wallet(walletMnemonic)
@@ -37,7 +35,8 @@ export const queryBid = async (walletMnemonic: string): Promise<any> => {
   })
 
   const result = await client.query.compute.queryContract({
-    contractAddress: 'YOUR_CONTRACT_ADDRESS',
+    code_hash: '',
+    contract_address: 'YOUR_CONTRACT_ADDRESS',
     query: { query_bid: { wallet: wallet.address, permit } },
   })
 
